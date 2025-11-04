@@ -1,0 +1,314 @@
+/* 🔹 NAVBAR */
+.navbar {
+    display: flex; /* Usa flexbox para alinear los elementos del navbar en una misma fila */
+    justify-content: space-between; /* Separa los elementos: uno a la izquierda y otro a la derecha */
+    align-items: center; /* Centra verticalmente los elementos dentro del navbar */
+    background: #004aad; /* Color de fondo azul */
+    color: white; /* Texto blanco */
+    padding: 1rem 2rem; /* Espaciado interno (1 arriba/abajo, 2 a los lados) */
+    position: sticky; /* Fija la barra en la parte superior al hacer scroll */
+    top: 0; /* La posición sticky se aplica desde el borde superior */
+    z-index: 100; /* Asegura que quede por encima de otros elementos */
+}
+
+.navbar ul {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Coloca los elementos en línea horizontal */
+    gap: 1.5rem; /* Espacio entre los elementos del menú */
+}
+
+.navbar a {
+    color: white; /* Color del texto blanco */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: 500; /* Grosor medio del texto */
+    transition: color 0.3s; /* Transición suave al cambiar color */
+}
+
+.navbar a:hover {
+    color: #ffdd57; /* Cambia el color del enlace al pasar el mouse */
+}
+
+#modo-btn {
+    background: white; /* Fondo blanco */
+    color: #004aad; /* Texto azul */
+    border: none; /* Sin borde */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    font-weight: 600; /* Texto más grueso */
+    transition: 0.3s; /* Transición suave para efectos */
+}
+
+#modo-btn:hover {
+    background: #ffdd57; /* Fondo amarillo al pasar el cursor */
+}
+
+/* 🔹 BOTÓN DESCARGAR */
+.btn-descargar {
+    display: inline-block; /* Se comporta como bloque pero en línea */
+    margin-top: 1rem; /* Espacio superior */
+    background: #ffdd57; /* Fondo amarillo */
+    color: #004aad; /* Texto azul */
+    padding: 0.6rem 1.2rem; /* Espaciado interno */
+    border-radius: 25px; /* Bordes redondeados */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold; /* Texto en negritas */
+    transition: 0.3s; /* Transición suave para hover */
+}
+
+.btn-descargar:hover {
+    background: #fff; /* Fondo blanco al pasar el cursor */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* 🔹 PROYECTOS */
+.proyectos {
+    margin-top: 3rem; /* Espacio superior entre secciones */
+}
+
+.proyectos-grid {
+    display: grid; /* Usa un layout tipo cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Se adapta automáticamente al ancho disponible */
+    gap: 1.5rem; /* Espacio entre tarjetas */
+}
+
+.proyecto {
+    background: #fff; /* Fondo blanco */
+    border-left: 4px solid #004aad; /* Borde azul al lado izquierdo */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Sombra ligera */
+    transition: transform 0.3s; /* Suaviza el movimiento al hacer hover */
+}
+
+.proyecto:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+}
+
+/* 🔹 BARRAS DE HABILIDADES */
+.skill-bar {
+    margin-bottom: 1rem; /* Espacio inferior entre barras */
+}
+
+.bar {
+    background: #ddd; /* Fondo gris claro del contenedor de la barra */
+    border-radius: 20px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que se salga del contenedor */
+}
+
+.progress {
+    height: 15px; /* Altura de la barra de progreso */
+    border-radius: 20px; /* Bordes redondeados */
+    animation: fill 2s ease-in-out forwards; /* Animación que llena la barra */
+}
+
+/* Porcentaje y color de cada habilidad */
+.progress.html { width: 90%; background: #ff6f00; } /* HTML: naranja */
+.progress.css { width: 85%; background: #004aad; }  /* CSS: azul */
+.progress.js { width: 70%; background: #ffb300; }   /* JavaScript: amarillo */
+
+/* Animación de llenado de las barras */
+@keyframes fill {
+    from { width: 0; } /* Empieza vacía */
+    to { width: inherit; } /* Termina con el ancho asignado */
+}
+
+/* 🔹 MODO OSCURO */
+.dark-mode {
+    background: #121212; /* Fondo general oscuro */
+    color: #f1f1f1; /* Texto claro */
+}
+
+.dark-mode .header,
+.dark-mode .footer,
+.dark-mode .navbar {
+    background: #1e1e1e; /* Fondo más oscuro para la barra y pie */
+    color: #fff; /* Texto blanco */
+}
+
+.dark-mode .card,
+.dark-mode .proyecto {
+    background: #1f1f1f; /* Fondo gris oscuro en tarjetas */
+    border-left-color: #ffdd57; /* Borde amarillo */
+}
+
+.dark-mode .btn-descargar {
+    background: #ffdd57; /* Fondo amarillo */
+    color: #000; /* Texto negro */
+}
+
+/* 🔹 ANIMACIONES DE ENTRADA */
+header, section, footer {
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(20px); /* Desplazado hacia abajo */
+    animation: fadeIn 1s forwards; /* Aparece suavemente */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Se vuelve visible */
+        transform: translateY(0); /* Regresa a su posición normal */
+    }
+}
+
+/* 🔹 CONTACTO */
+.contacto {
+    background: linear-gradient(135deg, #004aad, #0077ff); /* Degradado azul */
+    color: white; /* Texto blanco */
+    padding: 3rem 1rem; /* Espaciado interno */
+    text-align: center; /* Centra el contenido */
+    border-radius: 20px; /* Bordes redondeados */
+    margin: 2rem auto; /* Centrado y margen vertical */
+    max-width: 900px; /* Ancho máximo */
+}
+
+.contacto h2 {
+    margin-bottom: 1.5rem; /* Espacio inferior */
+    font-size: 1.8rem; /* Tamaño de fuente */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra en el texto */
+}
+
+.contacto-form {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Elementos en columna */
+    gap: 1rem; /* Espacio entre campos */
+    align-items: center; /* Centra horizontalmente */
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    max-width: 600px; /* No sobrepasan 600px */
+    padding: 0.8rem; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño del texto */
+    outline: none; /* Quita el borde de foco por defecto */
+    transition: 0.3s; /* Suaviza el cambio al enfocarse */
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+    box-shadow: 0 0 10px #ffdd57; /* Brillo amarillo al enfocar */
+}
+
+.contacto-form button {
+    background: #ffdd57; /* Fondo amarillo */
+    color: #004aad; /* Texto azul */
+    border: none; /* Sin borde */
+    padding: 0.8rem 2rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño del texto */
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor */
+    font-weight: bold; /* Texto en negritas */
+    transition: background 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.contacto-form button:hover {
+    background: white; /* Fondo blanco al pasar el mouse */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* 🔹 BOTÓN IR ARRIBA */
+#btn-arriba {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 25px; /* Desde el borde inferior */
+    right: 25px; /* Desde el borde derecho */
+    background: #004aad; /* Fondo azul */
+    color: white; /* Icono blanco */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma circular */
+    padding: 0.8rem 1rem; /* Tamaño del botón */
+    font-size: 1.2rem; /* Tamaño del icono */
+    cursor: pointer; /* Cursor tipo mano */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra */
+    transition: transform 0.3s, background 0.3s; /* Transición suave */
+    z-index: 999; /* Encima de todo */
+}
+
+#btn-arriba:hover {
+    transform: scale(1.1); /* Se agranda */
+    background: #ffdd57; /* Fondo amarillo */
+    color: #004aad; /* Texto azul */
+}
+
+/* 🔹 EFECTO DE ENTRADA EXTRA */
+section, header {
+    animation: fadeUp 1s ease-out both; /* Efecto de aparición vertical */
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0; /* Invisible al inicio */
+        transform: translateY(20px); /* Desplazado hacia abajo */
+    }
+    100% {
+        opacity: 1; /* Visible */
+        transform: translateY(0); /* En su posición original */
+    }
+}
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  transition: background 0.4s, box-shadow 0.4s;
+  z-index: 999;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 74, 173, 0.95);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffdd57;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.activo::after {
+  width: 100%;
+}
+
+#modo-btn {
+  background: #ffdd57;
+  color: #004aad;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s, background 0.3s;
+}
+
+#modo-btn:hover {
+  transform: scale(1.1);
+  background: white;
+}
