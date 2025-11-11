@@ -93,6 +93,18 @@
         </section>
     </main>
 
+    <!-- 🔹 SECCIÓN "GALERÍA DE FOTOS / CARRUSEL" -->
+<section class="galeria">
+  <h2>Mi Galería de Fotos</h2>
+  <div class="contenedor-fotos">
+    <img src="js.png" alt="Imagen 1">
+    <img src="html.png" alt="Imagen 2">
+    <img src="mysql.png.png" alt="Imagen 3">
+    <img src="css.png" alt="Imagen 4">
+  </div>
+</section>
+
+
     <!-- 🔹 PIE DE PÁGINA -->
     <footer class="footer">
         <p>© 2025 David Pérez</p> <!-- Derechos reservados -->
@@ -182,6 +194,38 @@
                 }
             });
         });
+
+        // 🎠 Carrusel de imágenes
+const track = document.querySelector('.carrusel-track');
+const images = document.querySelectorAll('.carrusel-track img');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+let index = 0;
+
+// Función para mover el carrusel
+function moverCarrusel() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Botón siguiente
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % images.length;
+  moverCarrusel();
+});
+
+// Botón anterior
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + images.length) % images.length;
+  moverCarrusel();
+});
+
+// Movimiento automático cada 3 segundos
+setInterval(() => {
+  index = (index + 1) % images.length;
+  moverCarrusel();
+}, 3000);
+
     </script>
 </body>
 </html>
